@@ -62,6 +62,47 @@ export function TechnicalReportPage({ locale }: { locale: Locale }) {
           </section>
         ))}
 
+        <section className="simple-page-section" id="mechanism">
+          <h2>{copy.mechanismTitle}</h2>
+          <p>{copy.mechanismIntro}</p>
+          <div className="report-mechanisms">
+            {copy.mechanismSteps.map((step, index) => (
+              <article className="report-mechanism" key={step.title}>
+                <div className="report-mechanism-index">{index + 1}</div>
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="simple-page-section" id="code-comparison">
+          <h2>{copy.codeComparisonTitle}</h2>
+          <p>{copy.codeComparisonCaption}</p>
+          <div className="table-wrap">
+            <table className="content-table">
+              <thead>
+                <tr>
+                  {copy.codeComparisonHeaders.map((header) => (
+                    <th key={header}>{header}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {copy.codeComparisonRows.map((row) => (
+                  <tr key={row.join("|")}>
+                    {row.map((cell) => (
+                      <td key={cell}>{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
         <section className="simple-page-section" id="principle-table">
           <h2>{locale === "zh" ? "表 1. 原理级对比" : "Table 1. Principle-Level Comparison"}</h2>
           <div className="table-wrap">
@@ -83,6 +124,27 @@ export function TechnicalReportPage({ locale }: { locale: Locale }) {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <section className="simple-page-section" id="code-snippets">
+          <h2>{copy.codeSnippetsTitle}</h2>
+          <p>{copy.codeSnippetsIntro}</p>
+          <div className="report-code-grid">
+            {copy.codeSnippets.map((snippet) => (
+              <article className="report-code-card" key={snippet.title}>
+                <div className="report-code-head">
+                  <div>
+                    <h3>{snippet.title}</h3>
+                    <p className="report-code-path">{snippet.path}</p>
+                  </div>
+                </div>
+                <p className="report-code-caption">{snippet.caption}</p>
+                <pre className="report-code">
+                  <code>{snippet.code}</code>
+                </pre>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -137,6 +199,19 @@ export function TechnicalReportPage({ locale }: { locale: Locale }) {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <section className="simple-page-section" id="benchmarks">
+          <h2>{copy.tierInsightsTitle}</h2>
+          <div className="report-code-grid">
+            {copy.tierInsights.map((item) => (
+              <article className="report-code-card" key={item.tier}>
+                <div className="report-tier-badge">{item.tier}</div>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
           </div>
         </section>
 
