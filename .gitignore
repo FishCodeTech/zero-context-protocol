@@ -3,3 +3,5 @@
 node_modules/
 docs/web/.next/
 docs/web/node_modules/
+.vercel/
+docs/web/.vercel/

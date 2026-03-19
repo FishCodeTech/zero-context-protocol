@@ -1,6 +1,7 @@
 # ZCP Python SDK API Reference
 
-The Python package name is `zcp`.
+The Python distribution name is `zero-context-protocol-sdk`. The import path
+remains `import zcp`.
 
 ```python
 import zcp

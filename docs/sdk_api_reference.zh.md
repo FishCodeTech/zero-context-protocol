@@ -1,6 +1,7 @@
 # ZCP Python SDK API 参考
 
-Python 包名是 `zcp`。
+Python 分发包名是 `zero-context-protocol-sdk`，导入路径仍然是
+`import zcp`。
 
 ```python
 import zcp
