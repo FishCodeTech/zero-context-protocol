@@ -52,7 +52,7 @@ Examples:
 - a backend asks the host to summarize retrieved context
 - a workflow uses a client-owned model to draft output before human review
 
-### Design Guidance
+### Sampling Design Guidance
 
 Prefer sampling for bounded, explicit decisions. Do not use it as a vague
 "think for a while" escape hatch. The server should still own workflow state
@@ -79,7 +79,7 @@ Use elicitation for:
 - URL handoff flows
 - interrupted task flows that later resume
 
-### Design Guidance
+### Elicitation Design Guidance
 
 Use elicitation only when the server genuinely lacks required input. Do not use
 it to offload validation or to patch over poor tool schemas.
@@ -120,7 +120,7 @@ Logging is useful for:
 - troubleshooting integration issues
 - explaining why a task paused or failed
 
-### Design Guidance
+### Logging Design Guidance
 
 Keep logs operational. They should help clients and operators understand server
 behavior, not duplicate business output that belongs in tool or task results.
