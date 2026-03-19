@@ -590,6 +590,157 @@ pre {
   min-width: 0;
 }
 
+.report-paper {
+  display: grid;
+  gap: 24px;
+}
+
+.report-header {
+  display: grid;
+  gap: 18px;
+}
+
+.report-header h1 {
+  margin-bottom: 0;
+}
+
+.report-abstract {
+  display: grid;
+  gap: 10px;
+}
+
+.report-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.report-metric,
+.report-figure,
+.report-track {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-subtle);
+}
+
+.report-metric {
+  padding: 14px 16px;
+}
+
+.report-metric-label,
+.report-column-label {
+  color: var(--ink-faint);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.report-metric-value {
+  margin-top: 6px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #123b70;
+}
+
+.report-metric p {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+}
+
+.report-figure {
+  padding: 18px;
+}
+
+.report-figure-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.report-column {
+  display: grid;
+  gap: 10px;
+}
+
+.report-node {
+  padding: 12px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.report-node-strong {
+  border-color: #9bb6da;
+  background: #f8fbff;
+}
+
+.report-node-runtime {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+}
+
+.report-node-muted {
+  color: var(--ink-soft);
+}
+
+.report-comparison {
+  display: grid;
+  gap: 14px;
+}
+
+.report-track {
+  padding: 16px;
+}
+
+.report-track h3 {
+  margin: 0 0 12px;
+}
+
+.report-step {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.report-step-accent {
+  border-color: #8eb3e3;
+  background: #f6faff;
+}
+
+.report-arrow {
+  height: 18px;
+  margin: 4px 0;
+  position: relative;
+}
+
+.report-arrow::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 8px;
+  border-top: 1px solid #98afcb;
+}
+
+.report-arrow::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid #98afcb;
+  border-right: 1px solid #98afcb;
+  transform: rotate(45deg);
+}
+
+.report-feedback {
+  margin-top: 10px;
+  color: #123b70;
+  font-weight: 600;
+}
+
 @media (max-width: 1080px) {
   .section-grid,
   .reference-grid,
@@ -597,6 +748,8 @@ pre {
   .two-column-grid,
   .doc-index-grid,
   .docs-section-grid,
+  .report-metrics,
+  .report-figure-grid,
   .doc-layout {
     grid-template-columns: 1fr;
   }

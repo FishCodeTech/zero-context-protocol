@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation";
 
-import { SimpleDocPage } from "../../_components/simple-doc-page";
+import { TechnicalReportPage } from "../../_components/technical-report-page";
 import { normalizeLocale } from "../../lib/i18n";
-import { simplePageCopy } from "../../lib/site-copy";
 
 export default async function LocalizedArchitecturePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -11,5 +10,5 @@ export default async function LocalizedArchitecturePage({ params }: { params: Pr
     notFound();
   }
 
-  return <SimpleDocPage locale="zh" page={simplePageCopy.zh.architecture} />;
+  return <TechnicalReportPage locale="zh" />;
 }

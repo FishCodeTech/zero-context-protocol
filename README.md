@@ -12,7 +12,7 @@ It owns the protocol-facing explanation layer:
 - benchmark methodology and published benchmark presentation
 
 The reference Python SDK and runtime live in
-[`zero-context-protocol-python`](https://github.com/jiayuqi7813/zero-context-protocol-python).
+[`zero-context-protocol-python`](https://github.com/FishCodeTech/zero-context-protocol-python).
 
 ## What This Repository Owns
 

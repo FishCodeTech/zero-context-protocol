@@ -1,6 +1,5 @@
-import { SimpleDocPage } from "../_components/simple-doc-page";
-import { simplePageCopy } from "../lib/site-copy";
+import { TechnicalReportPage } from "../_components/technical-report-page";
 
 export default function ArchitecturePage() {
-  return <SimpleDocPage locale="en" page={simplePageCopy.en.architecture} />;
+  return <TechnicalReportPage locale="en" />;
 }
