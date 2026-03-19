@@ -35,6 +35,24 @@ export function HomePageView({ locale }: { locale: Locale }) {
         </ul>
       </section>
 
+      <section className="section-card">
+        <h2 className="section-title">{copy.repositoryTitle}</h2>
+        <p>{copy.repositoryDescription}</p>
+        <div className="two-column-grid">
+          {copy.repositories.map((repository) => (
+            <article className="docs-section-card" key={repository.href}>
+              <h2>{repository.name}</h2>
+              <p>{repository.summary}</p>
+              <div className="link-row">
+                <Link className="button-link" href={repository.href} target="_blank" rel="noreferrer">
+                  {copy.openRepository}
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="docs-section-grid">
         {sections.map((section) => (
           <article className="docs-section-card" key={section.id}>

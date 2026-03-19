@@ -24,6 +24,10 @@ type HomeCopy = {
   actions: Array<{ href: string; label: string }>;
   startTitle: string;
   startItems: string[];
+  repositoryTitle: string;
+  repositoryDescription: string;
+  repositories: Array<{ name: string; href: string; summary: string }>;
+  openRepository: string;
   openSection: string;
 };
 
@@ -73,6 +77,22 @@ export const homeCopy: Record<Locale, HomeCopy> = {
       "Use the guide pages when building servers, clients, auth, tasks, and transport deployments.",
       "Use the reference pages for exact protocol behavior, capability status, benchmarks, and migration planning.",
     ],
+    repositoryTitle: "GitHub repositories",
+    repositoryDescription:
+      "The public source of truth lives in two repositories: the docs and protocol repository, and the Python SDK repository.",
+    repositories: [
+      {
+        name: "FishCodeTech/zero-context-protocol",
+        href: "https://github.com/FishCodeTech/zero-context-protocol",
+        summary: "Docs site, protocol specification, capability matrix, benchmark presentation, and deployment assets.",
+      },
+      {
+        name: "FishCodeTech/zero-context-protocol-python",
+        href: "https://github.com/FishCodeTech/zero-context-protocol-python",
+        summary: "Python SDK, runtime, examples, compatibility surfaces, tests, and benchmark harness.",
+      },
+    ],
+    openRepository: "Open GitHub",
     openSection: "Open section",
   },
   zh: {
@@ -90,6 +110,21 @@ export const homeCopy: Record<Locale, HomeCopy> = {
       "构建 server、client、auth、tasks 和 transport 部署时，优先看 guides。",
       "需要严格行为定义、能力现状、基准和迁移说明时，使用 reference 页面。",
     ],
+    repositoryTitle: "GitHub 仓库",
+    repositoryDescription: "公开源码分成两个仓库：一个放协议与文档站，一个放 Python SDK 与运行时实现。",
+    repositories: [
+      {
+        name: "FishCodeTech/zero-context-protocol",
+        href: "https://github.com/FishCodeTech/zero-context-protocol",
+        summary: "文档站、协议说明、能力矩阵、基准展示和部署资产。",
+      },
+      {
+        name: "FishCodeTech/zero-context-protocol-python",
+        href: "https://github.com/FishCodeTech/zero-context-protocol-python",
+        summary: "Python SDK、运行时、示例、兼容层、测试和基准脚手架。",
+      },
+    ],
+    openRepository: "打开 GitHub",
     openSection: "进入分区",
   },
 };
