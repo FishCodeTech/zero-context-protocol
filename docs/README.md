@@ -1,25 +1,102 @@
-# Docs Repository Notes
+# Zero Context Protocol Docs
 
-This repository now owns the docs surface of Zero Context Protocol.
+This directory is the source-of-truth markdown corpus for the ZCP docs site.
+It is organized to feel closer to the official MCP docs structure: start with
+an introduction, learn the core concepts, choose a transport and auth model,
+then move into server/client guides, examples, and reference material.
 
-## Ownership
+Every primary page now has a Chinese companion file named `*.zh.md`, and the
+docs site exposes an English / Chinese language switch on every page.
 
-- `docs/web`: the primary docs app
-- `docs/mcp_capability_matrix.md`: MCP compatibility framing
-- `benchmark_reports`: benchmark artifacts for presentation
+ZCP exposes two surfaces from one runtime:
 
-## Non-Ownership
+- an MCP-compatible surface for interoperability
+- a native ZCP surface for lower token overhead and tighter runtime control
 
-- `src/zcp`
-- `tests`
-- Python benchmark runners
-- installable SDK source code
+The docs below are written to make that split explicit instead of hiding it.
 
-Those now belong to `zero-context-protocol-python`.
+## How To Read These Docs
 
-## Source of Truth Rules
+If you are new to the project, use this order:
 
-- API behavior, tests, and benchmark generation belong to the Python SDK repo
-- docs pages, protocol explanation, and benchmark presentation belong here
-- benchmark display should consume generated artifacts from
-  `benchmark_reports/`, not reimplement the benchmark logic
+1. `introduction_getting_started.md`
+2. `core_concepts_tools_resources_prompts.md`
+3. `core_concepts_sampling_elicitation_roots_logging_tasks.md`
+4. `transports_guide.md`
+5. `authorization_guide.md`
+6. `server_guide.md`
+7. `client_guide.md`
+8. `examples_and_use_cases.md`
+9. `faq.md`
+
+After that, use the reference documents as needed:
+
+- `mcp_protocol_reference.md`
+- `sdk_api_reference.md`
+- `mcp_capability_matrix.md`
+- `mcp_migration.md`
+- `benchmark_methodology.md`
+- `mcp_gap_todo.md`
+
+## Document Categories
+
+### Introduction
+
+- `introduction_getting_started.md`
+  - what ZCP is
+  - how it relates to MCP
+  - first local server and client paths
+
+### Core Concepts
+
+- `core_concepts_tools_resources_prompts.md`
+  - tools
+  - resources
+  - resource templates
+  - prompts
+- `core_concepts_sampling_elicitation_roots_logging_tasks.md`
+  - sampling
+  - elicitation
+  - roots
+  - logging
+  - progress
+  - tasks
+
+### Guides
+
+- `transports_guide.md`
+- `authorization_guide.md`
+- `server_guide.md`
+- `client_guide.md`
+
+### Learning By Example
+
+- `examples_and_use_cases.md`
+- `faq.md`
+
+### Reference And Compatibility
+
+- `mcp_protocol_reference.md`
+- `sdk_api_reference.md`
+- `mcp_capability_matrix.md`
+- `mcp_migration.md`
+- `benchmark_methodology.md`
+- `mcp_gap_todo.md`
+
+## Repository Ownership
+
+This repository owns:
+
+- protocol explanation and conceptual docs
+- compatibility and migration framing
+- benchmark methodology and documentation copy
+- the markdown rendered by `docs/web`
+
+This repository does not own:
+
+- the Python runtime and SDK in `zero-context-protocol-python/src/zcp`
+- the Python tests in `zero-context-protocol-python/tests`
+- example benchmark scripts in `zero-context-protocol-python/examples`
+
+If a behavior claim in these docs conflicts with runtime behavior, the Python
+SDK implementation and tests win. Update the markdown to match the code.

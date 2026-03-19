@@ -1,18 +1,17 @@
-# ZCP MCP Capability Matrix
+# ZCP MCP 能力矩阵
 
-This matrix tracks parity against the official MCP specification repository and
-the official MCP Python SDK from the perspective of this workspace.
+这个矩阵从当前工作区的视角，跟踪 ZCP 相对于 MCP 官方规范仓库和官方 MCP Python SDK 的对标情况。
 
-ZCP serves two surfaces from one runtime:
+ZCP 用同一个运行时同时服务两套表面：
 
-- the MCP-compatible surface for interoperability
-- the native ZCP surface for lower token usage and tighter orchestration
+- 用于互操作的 MCP-compatible surface
+- 用于更低 token 消耗和更紧凑编排的原生 ZCP surface
 
-The table separates three questions:
+这个表格把三个问题拆开来看：
 
-- is the feature implemented
-- is there compatibility coverage here
-- what does the native ZCP path improve
+- 这个特性是否已经实现
+- 这里是否已经有兼容性覆盖
+- 原生 ZCP 路径带来了什么改进
 
 | MCP Feature | Implemented On MCP Surface | Compatibility Coverage Here | ZCP Native Advantage |
 | --- | --- | --- | --- |
@@ -35,48 +34,46 @@ The table separates three questions:
 | Authorization metadata | Yes | Partial | Native auth profile metadata stays runtime-owned |
 | OAuth code flow, PKCE, refresh, registration, revocation | Yes | Partial | Same provider model can be reused for native surfaces |
 
-## How To Read This Matrix
+## 如何阅读这个矩阵
 
-- `Yes` in implementation means the feature is present in the current runtime.
-- `Yes` in compatibility coverage means this repository has concrete validation
-  for the feature or transport against the current implementation.
-- `Partial` means the feature exists and works in core scenarios, but broader
-  interoperability or edge-case coverage is still being tracked.
+- 实现列中的 `Yes` 表示这个特性已经存在于当前运行时中。
+- 兼容性覆盖列中的 `Yes` 表示这个仓库已经针对当前实现，对该特性或传输层做了具体验证。
+- `Partial` 表示这个特性已经存在，核心场景可用，但更广泛的互操作性或边界情况覆盖仍在继续跟踪中。
 
-## Current Position
+## 当前状态
 
-The current implementation now includes:
+当前实现已经包括：
 
-- stdio interoperability
-- streamable HTTP interoperability on `/mcp`
-- websocket interoperability on `/ws`
-- OAuth metadata and protected resource metadata
-- OAuth authorization code flow with PKCE
+- stdio 互操作
+- `/mcp` 上的 streamable HTTP 互操作
+- `/ws` 上的 websocket 互操作
+- OAuth metadata 和 protected resource metadata
+- 带 PKCE 的 OAuth authorization code flow
 - refresh token exchange
-- dynamic registration and revocation
-- task-augmented tool calls
-- async task lifecycle states
+- dynamic registration 和 revocation
+- task-augmented tool call
+- 异步 task 生命周期状态
 
-The strict remaining work is mostly:
+当前严格意义上的剩余工作主要是：
 
-- broader compatibility coverage for progress, sampling, elicitation, and tasks
-- deeper reconnect and soak coverage for long-lived transports
-- broader auth interoperability coverage beyond the current validated flows
+- 为 progress、sampling、elicitation 和 tasks 提供更广泛的兼容性覆盖
+- 为长生命周期传输层提供更深入的重连和 soak 覆盖
+- 在当前已验证流程之外，扩展更广泛的 auth 互操作性覆盖
 
-For the precise remaining list, use `mcp_gap_todo.md`.
+需要查看精确的剩余清单时，请使用 `mcp_gap_todo.md`。
 
-## Verified Performance Snapshot (Excel Semantic Suite v5)
+## 已验证性能快照（Excel 语义套件 v5）
 
-Run metadata:
+运行元数据：
 
-- date: `2026-03-17`
-- model: `deepseek-chat` (`https://api.deepseek.com`)
-- repeats: `1`
-- cases: `37` (`Tier A/B/C/D`)
-- compared backends:
+- 日期：`2026-03-17`
+- 模型：`deepseek-chat`（`https://api.deepseek.com`）
+- repeats：`1`
+- case 数：`37`（`Tier A/B/C/D`）
+- 对比后端：
   - `zcp_client_to_native_zcp`
   - `mcp_client_to_zcp_mcp_surface`
-- artifacts:
+- 证据产物：
   - `zero-context-protocol-python/benchmark_reports/full_semantic_compare_v5/excel_llm_token_benchmark.json`
   - `zero-context-protocol-python/benchmark_reports/full_semantic_compare_v5/excel_llm_token_benchmark.md`
   - `zero-context-protocol-python/benchmark_reports/full_semantic_compare_v5/semantic_benchmark_summary.md`
@@ -89,10 +86,10 @@ Run metadata:
 | Tier C | 2091.1 | 72113.9 | 34.49x | 100.0% / 100.0% / 100.0% |
 | Tier D | 2018.3 | 19375.7 | 9.60x | 100.0% / 100.0% / 100.0% |
 
-Interpretation notes:
+解读说明：
 
-- native ZCP wins average token usage in every tier for this run
-- native ZCP is lower-token in `25/37` cases; the remaining `12` are all Tier A primitive cases
-- quality gaps are largest in complex tiers on the MCP surface path:
-  - Tier C tool compliance: `57.1%` vs native `100.0%`
-  - Tier D tool compliance: `16.7%` vs native `100.0%`
+- 在这次运行里，native ZCP 在四个 tier 的平均 token 都更低
+- `37` 个 case 中，native ZCP 在 `25` 个 case 更省 token；剩余 `12` 个都属于 Tier A 原子操作场景
+- MCP surface 路径在复杂层级的质量差距更明显：
+  - Tier C tool compliance：`57.1%`（native 为 `100.0%`）
+  - Tier D tool compliance：`16.7%`（native 为 `100.0%`）
