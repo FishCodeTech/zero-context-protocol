@@ -1,0 +1,70 @@
+{
+  "model": "deepseek-chat",
+  "repeats": 1,
+  "overall_pairwise": {
+    "left_id": "zcp_client_to_native_zcp",
+    "right_id": "mcp_client_to_zcp_mcp_surface",
+    "left_avg_total_tokens": 8027.864864864865,
+    "right_avg_total_tokens": 30723.702702702703,
+    "right_minus_left": 22695.83783783784,
+    "right_div_left": 3.8271325215213228
+  },
+  "overall_summary": [
+    {
+      "backend_id": "zcp_client_to_native_zcp",
+      "answer_accuracy": 1.0,
+      "workbook_accuracy": 0.972972972972973,
+      "tool_compliance": 1.0,
+      "avg_total_tokens": 8027.864864864865,
+      "avg_turns": 2.081081081081081,
+      "avg_tool_calls": 1.0810810810810811
+    },
+    {
+      "backend_id": "mcp_client_to_zcp_mcp_surface",
+      "answer_accuracy": 0.972972972972973,
+      "workbook_accuracy": 0.918918918918919,
+      "tool_compliance": 0.7297297297297297,
+      "avg_total_tokens": 30723.702702702703,
+      "avg_turns": 3.945945945945946,
+      "avg_tool_calls": 3.0
+    }
+  ],
+  "tier_summary": [
+    {
+      "tier": "A",
+      "zcp_avg_total_tokens": 15979.375,
+      "mcp_avg_total_tokens": 17613.1875,
+      "ratio": 1.102245081550436,
+      "zcp_answer_accuracy": 1.0,
+      "zcp_workbook_accuracy": 0.9375,
+      "zcp_tool_compliance": 1.0
+    },
+    {
+      "tier": "B",
+      "zcp_avg_total_tokens": 1826.625,
+      "mcp_avg_total_tokens": 29239.375,
+      "ratio": 16.007322247314036,
+      "zcp_answer_accuracy": 1.0,
+      "zcp_workbook_accuracy": 1.0,
+      "zcp_tool_compliance": 1.0
+    },
+    {
+      "tier": "C",
+      "zcp_avg_total_tokens": 2091.1428571428573,
+      "mcp_avg_total_tokens": 72113.85714285714,
+      "ratio": 34.485380516464,
+      "zcp_answer_accuracy": 1.0,
+      "zcp_workbook_accuracy": 1.0,
+      "zcp_tool_compliance": 1.0
+    },
+    {
+      "tier": "D",
+      "zcp_avg_total_tokens": 2018.3333333333333,
+      "mcp_avg_total_tokens": 19375.666666666668,
+      "ratio": 9.599834847233693,
+      "zcp_answer_accuracy": 1.0,
+      "zcp_workbook_accuracy": 1.0,
+      "zcp_tool_compliance": 1.0
+    }
+  ]
+}
